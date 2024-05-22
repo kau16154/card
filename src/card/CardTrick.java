@@ -35,28 +35,27 @@ public class CardTrick {
             System.out.println(card);
         }
 
-        // Ask the user to pick a card
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Pick a card (value and suit, e.g., '2 of Hearts'): ");
-        String userCard = scanner.nextLine();
+        // Hard-coded lucky card
+        Card luckyCard = new Card(7, "Hearts"); // Example: 7 of Hearts
 
-        // Search for the card in the hand
+        // Search for the lucky card in the hand
         boolean found = false;
         for (Card card : hand) {
-            if (card.toString().equalsIgnoreCase(userCard)) {
+            if (card.getValue() == luckyCard.getValue() && card.getSuit().equals(luckyCard.getSuit())) {
                 found = true;
                 break;
             }
         }
 
-        // Report whether the card is in the hand
+        // Report whether the lucky card is in the hand
         if (found) {
-            System.out.println("Your card is in the hand!");
+            System.out.println("Your lucky card " + luckyCard + " is in the hand! You win!");
         } else {
-            System.out.println("Your card is not in the hand.");
+            System.out.println("Your lucky card " + luckyCard + " is not in the hand. You lose.");
         }
     }
 }
+            
         
     
 
